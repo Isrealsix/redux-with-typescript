@@ -1,5 +1,5 @@
-import { ActionType } from './../action-types/index';
-import { Action } from './../actions';
+import { ActionType } from '../action-types/index';
+import { Action } from '../actions';
 interface IRepositoriesState {
   loading: boolean;
   error: string | null;
