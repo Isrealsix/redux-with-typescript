@@ -1,10 +1,28 @@
-interface IrepositoriesState {
+interface IRepositoriesState {
   loading: boolean;
   error: string | null;
   data: string[];
 }
 
-const reducer = (state: IrepositoriesState, action: any) => {
+interface ISearchRepositoriesAction {
+  type: 'search_repositories';
+}
+
+interface ISearchRepositoriesSuccessAction {
+  type: 'search_repositories_success';
+  payload: string[];
+}
+
+interface ISearchRepositoriesErrorAction {
+  type: 'search_repositories_error';
+  payload: string;
+}
+
+type IAction = ISearchRepositoriesAction
+  | ISearchRepositoriesSuccessAction
+  | ISearchRepositoriesErrorAction;
+
+const reducer = (state: IRepositoriesState, action: IAction): IRepositoriesState => {
   switch (action.type) {
     case 'search_repositories':
       return { loading: true, error: null, data: [] };
